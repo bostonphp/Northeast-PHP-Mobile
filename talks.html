@@ -22,7 +22,7 @@
 			<div data-role="content">
 				<div style="text-align: center;">
 					<fieldset data-role="controlgroup" data-type="horizontal" style="display: inline;">
-						<input type="radio" id="sort-talks-list-title" disabled />
+						<input type="radio" name="sort-talks-list" id="sort-talks-list-title" disabled />
 						<label for="sort-talks-list-title">Sort</label>
 						<input type="radio" name="sort-talks-list" id="sort-talks-list-alphabetically" value="a" checked />
 						<label for="sort-talks-list-alphabetically">A - Z</label>
@@ -39,6 +39,9 @@
 		<script type="text/javascript">
 			$( document ).on( 'pageinit', function () {
 				API.setupTalks();
+			} );
+			$( 'input:radio[name="sort-talks-list"]' ).on( 'click', function () {
+				API.setupTalks( $( this ).val() );
 			} );
 		</script>
 	</body>
