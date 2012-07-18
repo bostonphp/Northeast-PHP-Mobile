@@ -14,7 +14,7 @@ API.setupTalks = function ( sort_talks_list_by ) {
 
 			console.log( talks );
 
-			/*if ( sort_talks_list_by != undefined ) {
+			if ( sort_talks_list_by != undefined ) {
 				if ( sort_talks_list_by == 'a' ) {
 					talks.sort( function ( a, b ) {
 						var topic_a = a[ 'Talk' ][ 'topic' ].toLowerCase();
@@ -30,6 +30,10 @@ API.setupTalks = function ( sort_talks_list_by ) {
 							}
 						}
 					} );
+				} else if ( sort_talks_list_by == 'l' ) {
+					
+				} else if ( sort_talks_list_by == 's' ) {
+
 				}
 			} else if ( sort_talks_list_by == undefined ) {
 				talks.sort( function ( a, b ) {
@@ -46,10 +50,11 @@ API.setupTalks = function ( sort_talks_list_by ) {
 						}
 					}
 				} );
-			}*/
+			}
 
+			$( 'ul#talks-list' ).empty();
 			for ( i = 0; i < talks.length; i++ ) {
-				$( 'ul#talks-list' ).empty();
+
 				$( 'ul#talks-list' ).append(
 					'<li>' +
 						'<a href="#">' +
