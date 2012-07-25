@@ -4,17 +4,17 @@ if ( API == null || typeof( API ) != 'object' ) {
 
 API.setupTalks = function ( sort_talks_list_by ) {
 	$.ajax( {
-		'url': '/scripts/php/api.php',
-		'dataType': 'json',
-		'data': {
+		'url': 'http://www.test.northeastphp.org/api/talks.json',
+		'dataType': 'jsonp',
+		/*'data': {
 			'call': 'talks'
-		},
+		},*/
 		'success': function ( data ) {
 			var talks = data[ 'talks' ];
 
 			console.log( talks );
 
-			if ( sort_talks_list_by != undefined ) {
+			/*if ( sort_talks_list_by != undefined ) {
 				if ( sort_talks_list_by == 'a' ) {
 					talks.sort( function ( a, b ) {
 						var topic_a = a[ 'Talk' ][ 'topic' ].toLowerCase();
@@ -65,7 +65,7 @@ API.setupTalks = function ( sort_talks_list_by ) {
 						}
 					}
 				} );
-			}
+			}*/
 
 			$( 'ul#talks-list' ).empty();
 			for ( i = 0; i < talks.length; i++ ) {

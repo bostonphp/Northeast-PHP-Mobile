@@ -3,25 +3,26 @@
 	<head>
 		<title>NorthEast PHP Conference</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
 
-		<link rel="stylesheet" href="resources/jQuery/jQuery%20Mobile/jquery.mobile-1.1.1.min.css" />
+		<link rel="stylesheet" href="resources/jquery/jquery-mobile/NorthEast_PHP-Conference-Mobile-Site-v1.min.css" />
+		<link rel="stylesheet" href="resources/jquery/jquery-mobile/jquery.mobile.structure-1.1.1.min.css" />
 		<link rel="stylesheet" href="style/stylesheets/css/main.css" />
 
-		<script type="text/javascript" src="resources/jQuery/jquery.min.js"></script>
-		<script type="text/javascript" src="resources/jQuery/jQuery%20Mobile/jquery.mobile-1.1.1.min.js"></script>
+		<script type="text/javascript" src="resources/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="resources/jquery/jquery-mobile/jquery.mobile-1.1.1.min.js"></script>
 		<script type="text/javascript" src="scripts/js/main.js"></script>
 	</head>
 	<body>
-		<div data-role="page" data-title="NorthEast PHP Conference: Talks">
+		<div data-role="page" data-title="NorthEast PHP Conference: Talks" data-theme="a">
 			<div data-position="fixed" data-role="header">
-				<a data-icon="home" href="index.html">Home</a>
+				<a data-icon="home" data-corners="false" href="index.html">Home</a>
 				<h1>Talks</h1>
 			</div>
 			<div data-role="content">
 				<div style="text-align: center;">
-					<fieldset data-role="controlgroup" data-type="horizontal" style="display: inline;">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="display: inline;">
 						<input type="radio" name="sort-talks-list" id="sort-talks-list-title" disabled />
 						<label for="sort-talks-list-title">Sort</label>
 						<input type="radio" name="sort-talks-list" id="sort-talks-list-alphabetically" value="a" checked />
@@ -40,9 +41,12 @@
 			$( document ).on( 'pageinit', function () {
 				API.setupTalks();
 			} );
+			/*$( document ).on( 'pageshow', function () {
+				$( 'input:radio[ name="sort-talks-list" ]' ).checkboxradio( 'refresh' );
+			} );
 			$( 'input:radio[name="sort-talks-list"]' ).on( 'click', function () {
 				API.setupTalks( $( this ).val() );
-			} );
+			} );*/
 		</script>
 	</body>
 </html>
