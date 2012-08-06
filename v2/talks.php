@@ -23,7 +23,7 @@
 
 				print '
 					<h4><a href="talk-details.php?id=' . $data_Talk_id . '">' . $data_Talk_topic . '</a></h4>
-					<p><strong>Speaker:</strong> ' . $data_Speaker_first_name . ' ' . $data_Speaker_last_name . '
+					<p><strong>Speaker:</strong> ' . $data_Speaker_last_name . ', ' . $data_Speaker_first_name . '
 					<p><strong>Likes:</strong> ' . $data_Talk_talk_like_count . '</p>
 					<br />
 				';
