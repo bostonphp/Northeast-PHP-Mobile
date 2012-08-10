@@ -7,15 +7,11 @@ Application.capitalizeFirstLetter = (text) ->
 API.address = 'http://www.northeastphp.org'
 
 API.setupTalks = ->
-	console.log API.address + '/api/talks.json'
-
 	$.ajax
 		'url': API.address + '/api/talks.json'
 		'dataType': 'jsonp'
 		'success': (data) ->
 			talks = data['talks']
-
-			console.log talks
 
 			$('ul#talks-list').empty()
 			for talk in talks
@@ -39,8 +35,6 @@ API.setupTalks = ->
 API.setupTalkDetails = ->
 	talk_id = $.mobile.path.parseUrl($(location).attr('href')).search.replace '?id=', ''
 
-	console.log API.address + '/api/talks/' + talk_id + '.json'
-
 	$.ajax
 		'url': API.address + '/api/talks/' + talk_id + '.json'
 		'dataType': 'jsonp'
@@ -48,8 +42,6 @@ API.setupTalkDetails = ->
 			talk = data['talks'][0]
 			talk_Talk_start_time = talk['Talk']['start_time']
 			talk_Talk_talk_like_count = talk['Talk']['talk_like_count']
-
-			console.log talk
 
 			$('div[data-role="content"]').append(
 				'<h2 class="talk-details-jqm-page-h2">' + talk['Talk']['topic'] + '</h2>' +

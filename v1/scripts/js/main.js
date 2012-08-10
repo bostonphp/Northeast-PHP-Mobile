@@ -12,14 +12,12 @@ Application.capitalizeFirstLetter = function(text) {
 API.address = 'http://www.northeastphp.org';
 
 API.setupTalks = function() {
-  console.log(API.address + '/api/talks.json');
   $.ajax({
     'url': API.address + '/api/talks.json',
     'dataType': 'jsonp',
     'success': function(data) {
       var talk, talk_Talk_talk_like_count, talks, _i, _len;
       talks = data['talks'];
-      console.log(talks);
       $('ul#talks-list').empty();
       for (_i = 0, _len = talks.length; _i < _len; _i++) {
         talk = talks[_i];
@@ -33,7 +31,6 @@ API.setupTalks = function() {
 API.setupTalkDetails = function() {
   var talk_id;
   talk_id = $.mobile.path.parseUrl($(location).attr('href')).search.replace('?id=', '');
-  console.log(API.address + '/api/talks/' + talk_id + '.json');
   $.ajax({
     'url': API.address + '/api/talks/' + talk_id + '.json',
     'dataType': 'jsonp',
@@ -42,7 +39,6 @@ API.setupTalkDetails = function() {
       talk = data['talks'][0];
       talk_Talk_start_time = talk['Talk']['start_time'];
       talk_Talk_talk_like_count = talk['Talk']['talk_like_count'];
-      console.log(talk);
       $('div[data-role="content"]').append('<h2 class="talk-details-jqm-page-h2">' + talk['Talk']['topic'] + '</h2>' + '<p><i>' + Application.capitalizeFirstLetter(moment(talk_Talk_start_time, 'YYYY-MM-DD HH:mm:ss').fromNow()) + '</i></p>' + '<hr />' + '<p><strong>Speaker:</strong> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' + '<p><strong>Room:</strong> ' + talk['Talk']['room'] + '</p>' + '<p><strong>Date:</strong> ' + moment(talk_Talk_start_time, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do, YYYY') + '</p>' + '<p><strong>Start Time:</strong> ' + moment(talk_Talk_start_time, 'YYYY-MM-DD HH:mm:ss').format('hh:mm A') + '</p>' + '<p><strong>Duration:</strong> ' + (talk['Talk']['duration'] - 15) + ' minutes</p>' + '<p><strong>Track:</strong> ' + talk['Track']['name'] + '</p>' + '<hr />', '<p>' + talk['Talk']['abstract'] + '</p>' + '<hr />' + '<p><i><strong>' + talk_Talk_talk_like_count + '</strong> ' + (parseInt(talk_Talk_talk_like_count) === 1 ? 'person' : 'people') + ' ' + (parseInt(talk_Talk_talk_like_count) === 1 ? 'likes' : 'like') + ' this talk.' + '</i></p>');
     }
   });
