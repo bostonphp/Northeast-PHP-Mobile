@@ -1,0 +1,41 @@
+*
+{
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-o-border-radius: 0 !important;
+	-ms-border-radius: 0 !important;
+	-khtml-border-radius: 0 !important;
+}
+
+#talk-details-jqm-page p,
+h2.talk-details-jqm-page-h2,
+h2.speaker-details-jqm-page-h2,
+div#about-jqm-page-content p,
+div#about-jqm-page-content ul,
+div#venue-info > div p,
+div#venue-info > div ol,
+div#venue-info > div ul
+{
+	margin: 0;
+}
+
+ul#talks-list p,
+ul#speakers-list p,
+ul#speaker-talks-list p
+{
+	text-overflow: ellipsis;
+	overflow: visible;
+	white-space: normal;
+
+}
+
+.html-strong
+{
+	font-weight: bold;
+}
+
+.html-italic
+{
+	font-style: italic;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NorthEast PHP Conference</title>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<link rel="stylesheet" href="resources/jquery/jquery-mobile/NorthEast_PHP-Conference-Mobile-Site-v1.min.css" />
+		<link rel="stylesheet" href="resources/jquery/jquery-mobile/jquery.mobile.structure-1.1.1.min.css" />
+		<link rel="stylesheet" href="style/stylesheets/css/main.css" />
+
+		<script type="text/javascript" src="resources/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="resources/jquery/jquery-mobile/jquery.mobile-1.1.1.min.js"></script>
+		<script type="text/javascript" src="scripts/JavaScript/main.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page" data-title="NorthEast PHP Conference: Speakers" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<a data-icon="home" data-iconpos="notext" data-corners="false" data-ajax="false" href="index.html">Home</a>
+				<h1>Speakers</h1>
+			</div>
+			<div data-role="content">
+				<ul data-inset="true" data-role="listview" id="speakers-list"></ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).on('pageinit', function () {
+				API.setupSpeakers();
+			});
+		</script>
+	</body>
+</html>
