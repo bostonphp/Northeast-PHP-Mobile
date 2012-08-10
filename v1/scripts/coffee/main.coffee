@@ -1,12 +1,14 @@
-APP = {}
+Application = {}
 API = {}
 
-APP.capitalizeFirstLetter = (text) ->
+Application.capitalizeFirstLetter = (text) ->
 	text.charAt(0).toUpperCase() + text.slice 1
 
 API.address = 'http://www.northeastphp.org'
 
 API.setupTalks = ->
+	console.log API.address + '/api/talks.json'
+
 	$.ajax
 		'url': API.address + '/api/talks.json'
 		'dataType': 'jsonp'
@@ -20,9 +22,9 @@ API.setupTalks = ->
 				$('ul#talks-list').append(
 					'<li>' +
 						'<a href="/v1/talk-details.html?id=' + talk['Talk']['id'] + '" data-ajax="false">' +
-						'<p style="font-weight: bolder;">' + talk['Talk']['topic'] + '</p>' +
-						'<p style="font-style: italic; margin-bottom: 15px;">' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' +
-						'<p>' + talk['Talk']['abstract'].replace(/(<([^>]+)>)/ig, "") + '</p>' +
+						'<p style="font-weight: bolder; text-decoration: underline; margin-bottom: 15px;">' + talk['Talk']['topic'] + '</p>' +
+						'<p style="margin-bottom: 10px;"><span style="font-weight: bold;">Speaker:</span> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' +
+						'<p><span style="font-weight: bold;">Track:</span> ' + talk['Track']['name'] + '</p>' +
 						'<span class="ui-li-count">' + talk['Talk']['talk_like_count'] + ' ♥</span>' +
 						'</a>' +
 					'</li>'
@@ -49,7 +51,7 @@ API.setupTalkDetails = ->
 
 			$('div[data-role="content"]').append(
 				'<h2 class="talk-details-jqm-page-h2">' + talk['Talk']['topic'] + '</h2>' +
-				'<p><i>' + APP.capitalizeFirstLetter(moment(talk_Talk_start_time, 'YYYY-MM-DD HH:mm:ss').fromNow()) + '</i></p>' +
+				'<p><i>' + Application.capitalizeFirstLetter(moment(talk_Talk_start_time, 'YYYY-MM-DD HH:mm:ss').fromNow()) + '</i></p>' +
 				'<hr />' +
 				'<p><strong>Speaker:</strong> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' +
 				'<p><strong>Room:</strong> ' + talk['Talk']['room'] + '</p>' +

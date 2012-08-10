@@ -1,12 +1,22 @@
-* {
-	border-radius: 0 !important;
-	-webkit-border-radius: 0 !important;
-	-moz-border-radius: 0 !important;
-	-o-border-radius: 0 !important;
-	-ms-border-radius: 0 !important;
-	-khtml-border-radius: 0 !important;
+*
+{
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	-ms-border-radius: 0;
+	-khtml-border-radius: 0;
 }
 
-#talk-details-jqm-page p, h2.talk-details-jqm-page-h2 {
-	margin: 0 !important;
+#talk-details-jqm-page p,
+h2.talk-details-jqm-page-h2
+{
+	margin: 0;
+}
+
+ul#talks-list p {
+	text-overflow: ellipsis;
+	overflow: visible;
+	white-space: normal;
+
 }
