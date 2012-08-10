@@ -19,13 +19,15 @@ API.setupTalks = ->
 
 			$('ul#talks-list').empty()
 			for talk in talks
+				talk_Talk_talk_like_count = talk['Talk']['talk_like_count']
+
 				$('ul#talks-list').append(
 					'<li>' +
 						'<a href="/v1/talk-details.html?id=' + talk['Talk']['id'] + '" data-ajax="false">' +
-						'<p style="font-weight: bolder; text-decoration: underline; margin-bottom: 15px;">' + talk['Talk']['topic'] + '</p>' +
-						'<p style="margin-bottom: 10px;"><span style="font-weight: bold;">Speaker:</span> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' +
-						'<p><span style="font-weight: bold;">Track:</span> ' + talk['Track']['name'] + '</p>' +
-						'<span class="ui-li-count">' + talk['Talk']['talk_like_count'] + ' ♥</span>' +
+							'<p style="font-weight: bolder; text-decoration: underline; margin-top: 0; margin-bottom: 15px;">' + talk['Talk']['topic'] + '</p>' +
+							'<p style="margin-bottom: 10px;"><span style="font-weight: bold;">Speaker:</span> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' +
+							'<p><span style="font-weight: bold;">Track:</span> ' + talk['Track']['name'] + '</p>' +
+							'<p style="margin-top: 10px; margin-bottom: 0; font-style: italic;">' + talk_Talk_talk_like_count + ' ' + (if parseInt(talk_Talk_talk_like_count) is 1 then 'like' else 'likes') + '</p>' +
 						'</a>' +
 					'</li>'
 				).listview 'refresh'

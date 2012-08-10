@@ -17,13 +17,14 @@ API.setupTalks = function() {
     'url': API.address + '/api/talks.json',
     'dataType': 'jsonp',
     'success': function(data) {
-      var talk, talks, _i, _len;
+      var talk, talk_Talk_talk_like_count, talks, _i, _len;
       talks = data['talks'];
       console.log(talks);
       $('ul#talks-list').empty();
       for (_i = 0, _len = talks.length; _i < _len; _i++) {
         talk = talks[_i];
-        $('ul#talks-list').append('<li>' + '<a href="/v1/talk-details.html?id=' + talk['Talk']['id'] + '" data-ajax="false">' + '<p style="font-weight: bolder; text-decoration: underline; margin-bottom: 15px;">' + talk['Talk']['topic'] + '</p>' + '<p style="margin-bottom: 10px;"><span style="font-weight: bold;">Speaker:</span> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' + '<p><span style="font-weight: bold;">Track:</span> ' + talk['Track']['name'] + '</p>' + '<span class="ui-li-count">' + talk['Talk']['talk_like_count'] + ' ♥</span>' + '</a>' + '</li>').listview('refresh');
+        talk_Talk_talk_like_count = talk['Talk']['talk_like_count'];
+        $('ul#talks-list').append('<li>' + '<a href="/v1/talk-details.html?id=' + talk['Talk']['id'] + '" data-ajax="false">' + '<p style="font-weight: bolder; text-decoration: underline; margin-top: 0; margin-bottom: 15px;">' + talk['Talk']['topic'] + '</p>' + '<p style="margin-bottom: 10px;"><span style="font-weight: bold;">Speaker:</span> ' + talk['Speaker']['first_name'] + ' ' + talk['Speaker']['last_name'] + '</p>' + '<p><span style="font-weight: bold;">Track:</span> ' + talk['Track']['name'] + '</p>' + '<p style="margin-top: 10px; margin-bottom: 0; font-style: italic;">' + talk_Talk_talk_like_count + ' ' + (parseInt(talk_Talk_talk_like_count) === 1 ? 'like' : 'likes') + '</p>' + '</a>' + '</li>').listview('refresh');
       }
     }
   });
