@@ -12,38 +12,33 @@
 
 		<script type="text/javascript" src="resources/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="resources/jquery/jquery-mobile/jquery.mobile-1.1.1.min.js"></script>
-		<script type="text/javascript" src="scripts/js/main.js"></script>
+		<script type="text/javascript" src="scripts/JavaScript/main.min.js"></script>
 	</head>
 	<body>
 		<div data-role="page" data-title="NorthEast PHP Conference: Talks" data-theme="a">
-			<div data-position="fixed" data-role="header">
-				<a data-icon="home" data-corners="false" data-ajax="false" href="index.html">Home</a>
+			<div data-role="header" data-position="fixed">
+				<a data-icon="home" data-iconpos="notext" data-corners="false" data-ajax="false" href="index.html">Home</a>
 				<h1>Talks</h1>
 			</div>
 			<div data-role="content">
 				<div style="text-align: center;">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="display: inline;">
 						<input type="radio" name="sort-talks-list" id="sort-talks-list-alphabetically" value="a" checked />
-						<label for="sort-talks-list-alphabetically">A - Z</label>
-						<input type="radio" name="sort-talks-list" id="sort-talks-list-likes" value="l" />
-						<label for="sort-talks-list-likes">Likes</label>
+						<label for="sort-talks-list-alphabetically">Alphabetically</label>
 						<input type="radio" name="sort-talks-list" id="sort-talks-list-speaker" value="s" />
 						<label for="sort-talks-list-speaker">Speaker</label>
 					</fieldset>
 				</div>
-				<ul data-inset="true" data-role="listview" id="talks-list"></ul>
+				<ul data-mini="true" data-inset="true" data-role="listview" id="talks-list"></ul>
 			</div>
 		</div>
 		<script type="text/javascript">
-			$( document ).on( 'pageinit', function () {
+			$(document).on('pageinit', function () {
 				API.setupTalks();
-			} );
-			/*$( document ).on( 'pageshow', function () {
-				$( 'input:radio[ name="sort-talks-list" ]' ).checkboxradio( 'refresh' );
-			} );
-			$( 'input:radio[name="sort-talks-list"]' ).on( 'click', function () {
-				API.setupTalks( $( this ).val() );
-			} );*/
+			});
+			$('input:radio[name="sort-talks-list"]').on('click', function () {
+				API.setupTalks($(this).val());
+			});
 		</script>
 	</body>
 </html>
