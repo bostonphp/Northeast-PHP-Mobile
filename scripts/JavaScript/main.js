@@ -97,7 +97,7 @@ API.setupSpeakerDetails = function() {
       var speaker, speaker_Talk, speaker_Talk_talk_like_count, speaker_talks, speaker_talks_listview, _i, _len;
       speaker = data['speakers'][0];
       speaker_talks = speaker['Talk'];
-      speaker_talks_listview = '<ul data-inset="true" data-role="listview" id="speaker-talks-list">';
+      speaker_talks_listview = '<ul data-mini="true" data-inset="true" data-role="listview" id="speaker-talks-list">';
       for (_i = 0, _len = speaker_talks.length; _i < _len; _i++) {
         speaker_Talk = speaker_talks[_i];
         speaker_Talk_talk_like_count = speaker_Talk['talk_like_count'];

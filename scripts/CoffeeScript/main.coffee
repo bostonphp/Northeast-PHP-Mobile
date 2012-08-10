@@ -121,7 +121,7 @@ API.setupSpeakerDetails = ->
 			speaker = data['speakers'][0]
 
 			speaker_talks = speaker['Talk']
-			speaker_talks_listview = '<ul data-inset="true" data-role="listview" id="speaker-talks-list">'
+			speaker_talks_listview = '<ul data-mini="true" data-inset="true" data-role="listview" id="speaker-talks-list">'
 			for speaker_Talk in speaker_talks
 				speaker_Talk_talk_like_count = speaker_Talk['talk_like_count']
 
